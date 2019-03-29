@@ -12,10 +12,20 @@ private:
 	string value;
 	int length;
 public:
-	Decimal(string s);
+	string getValue();
 	string DectoBin();
+	string DectoBin(string);
 	string StringDiv2(string str);
 	string DectoHex();
+	string DectoHex(string x);
+	string add(string, string);
+	void ChuanHoa(string&);
+	Decimal& operator+(Decimal& other);
+	Decimal& operator=(Decimal& target);
+	string ToString();
+public:
+	Decimal(string s);
+	Decimal();
 };
 
 class Binary
@@ -24,7 +34,12 @@ private:
 	string value;
 	int length;
 public:
+	Binary();
 	Binary(string s);
+	void ChuanHoa();
+	string ToString();
+	string BinToHex(string);
+	Binary& operator=(Binary& target);
 };
 
 class Hexadecimal
@@ -33,5 +48,19 @@ private:
 	string value;
 	int length;
 public:
+	Hexadecimal();
 	Hexadecimal(string s);
+	string HectoBin();
+	string HectoDec();
+//	Hexadecimal& operator+(Hexadecimal* other);
+	Hexadecimal operator+(Hexadecimal);
+	Hexadecimal operator-(Hexadecimal);
+	Hexadecimal operator*(Hexadecimal);
+	Hexadecimal operator/(Hexadecimal);
+	string multiply(string, string);
+	string add(string, string);
+	void ChuanHoa(string&);
+	Hexadecimal& operator=(Hexadecimal& target);
+	Hexadecimal& operator=(string x);
+	string ToString();
 };
