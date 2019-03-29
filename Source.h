@@ -39,7 +39,10 @@ public:
 	void ChuanHoa();
 	string ToString();
 	string BinToHex(string);
+	string BinToHex();
 	Binary& operator=(Binary& target);
+	string Dichtrai(int n);
+	string Dichphai(int n);
 };
 
 class Hexadecimal
@@ -52,6 +55,7 @@ public:
 	Hexadecimal(string s);
 	string HectoBin();
 	string HectoDec();
+	string Dichtrai(int n);
 //	Hexadecimal& operator+(Hexadecimal* other);
 	Hexadecimal operator+(Hexadecimal);
 	Hexadecimal operator-(Hexadecimal);
