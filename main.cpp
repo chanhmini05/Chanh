@@ -31,17 +31,21 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	cout << a.ToString();*/
 
-	//Hexadecimal a("4A6");
-	//Hexadecimal b("1B3");
+	Hexadecimal a("4A6");
+	Hexadecimal b("1B3");
 	//
-	//Hexadecimal result = a + b;
+	Hexadecimal result = a + b;
 
-	//cout << result.ToString();
+	cout << result.ToString();
 
 	Binary test("11000110");
 
-	string t=test.Dichtrai(2);
-	string t1 = test.Dichphai(1);
+	/*string t=test.Dichtrai(2);
+	string t1 = test.Dichphai(1);*/
+
+	string t = a.HexToBin();
+	
+	string t1 = a.Dichtrai(1);
 
 	cout << t << endl;
 

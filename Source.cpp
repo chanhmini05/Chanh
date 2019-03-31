@@ -436,14 +436,14 @@ string Binary::Dichtrai(int n){
 	for (int i = 0; i < n; i++)
 	{
 		temp.erase(0, 1); // xoa bit dau tien, detele temp[0] ,sau khi xoa thi bit temp[1] la bit dau
-		cout << temp.length() << endl; 
 		temp += '0'; // them cac bit 0 vao sau khi xoa bit dau tuong ung voi dich 1 bit
 		
 	}
 	return temp;
 }
 
-string Binary::Dichphai(int n) {
+string Binary::Dichphai(int n)
+{
 	/*char first = this->value[0];
 	string s;
 	if (n >= this->length && first == '0') return "0";
@@ -481,7 +481,6 @@ string Binary::Dichphai(int n) {
 }
 
 
-
 Hexadecimal::Hexadecimal(string s)
 {
 	value = s;
@@ -504,7 +503,7 @@ string Hexadecimal::ToString()
 	return out.str();
 }
 
-string Hexadecimal::HectoBin()
+string Hexadecimal::HexToBin()
 {
 	string result;
 	for (int i = 0; i < length; i++){
@@ -629,15 +628,21 @@ string Hexadecimal::add(string str1, string str2)
 
 Hexadecimal Hexadecimal::operator+(Hexadecimal x)
 {
-	Hexadecimal result;
-	Decimal pt1(this->HectoDec());
-	Decimal pt2(x.HectoDec());
+	/*Hexadecimal result;
+	Decimal pt1(this->HexToDec());
+	Decimal pt2(x.HexToDec());
 	Decimal kq(pt1 + pt2);
 	result = kq.DectoHex(kq.getValue());
-	return result;
+	return result;*/
+
+	auto p1 = new Decimal(this->HexToDec());
+	auto p2 = new Decimal(x.HexToDec());
+	auto plus = new Decimal(*p1+*p2);
+	auto result = new Hexadecimal(plus->DectoHex());
+	return *result;
 }
 
-string Hexadecimal::HectoDec()
+string Hexadecimal::HexToDec()
 {
 	string mu; /// lưu phần có mũ... ví dụ 16^2
 	string result; /// lưu kết quả số thập phân sau khi chuyển đổi
@@ -687,6 +692,8 @@ string Hexadecimal::HectoDec()
 			result = add(result, temp);
 			continue;
 		}
+		
+		//else code bo sung phan nay
 		////////// trường hợp còn lại
 		for (int j = i; j <= str.length() - 3; j++)
 		{
@@ -715,7 +722,7 @@ Hexadecimal& Hexadecimal::operator=(string x)
 
 
 string Hexadecimal::Dichtrai(int n) {
-	auto tmp = new Binary(this->HectoBin());
+	auto tmp = new Binary(this->HexToBin());
 	string s = tmp->Dichtrai(n);
 	auto tmp1 = new Binary(s);
 	auto result = new Hexadecimal(tmp1->BinToHex());

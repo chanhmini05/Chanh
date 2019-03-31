@@ -53,8 +53,8 @@ private:
 public:
 	Hexadecimal();
 	Hexadecimal(string s);
-	string HectoBin();
-	string HectoDec();
+	string HexToBin();
+	string HexToDec();
 	string Dichtrai(int n);
 //	Hexadecimal& operator+(Hexadecimal* other);
 	Hexadecimal operator+(Hexadecimal);
